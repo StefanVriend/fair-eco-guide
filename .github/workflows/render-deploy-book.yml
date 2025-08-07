@@ -8,14 +8,18 @@ on:
 
 name: build-book
 
+permissions: read-all
+
 jobs:
-  build:
+  bookdown:
     runs-on: ubuntu-latest
     # Only restrict concurrency for non-PR jobs
     concurrency:
       group: pkgdown-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -39,25 +43,9 @@ jobs:
         run: bookdown::render_book("index.Rmd", quiet = TRUE)
         shell: Rscript {0}
 
-      - name: Upload website artifact
-        if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' }}
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub pages 🚀
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
-          path: "_book"
-
-  deploy:
-    needs: build
-
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          branch: gh-pages
+          folder: _book
