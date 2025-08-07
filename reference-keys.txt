@@ -1,4 +1,17 @@
 fig:MSSS-FAIR
 fig:Fig-mapping
+fig:budburst
+fig:crickets
+fig:CLUE
+fig:workflow
 evaluation
 mapping-of-evaluation-questions-to-fair-principles
+example-datasets
+budburst
+cricket
+CLUE
+workflow
+primary-data
+describe-data
+licencing
+structuring-your-tabular-data

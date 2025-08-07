@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A hands-on guide to FAIR and structured ecological data</title>
+  <title>3.2 Structuring your tabular data | A hands-on guide to FAIR and structured ecological data</title>
   <meta name="description" content="This hands-on manual provides step by step guidance on how to make your ecological data more FAIR (findable, accesible, interoperable and reusable) and structured." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A hands-on guide to FAIR and structured ecological data" />
+  <meta property="og:title" content="3.2 Structuring your tabular data | A hands-on guide to FAIR and structured ecological data" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This hands-on manual provides step by step guidance on how to make your ecological data more FAIR (findable, accesible, interoperable and reusable) and structured." />
   <meta name="github-repo" content="LTER-LIFE/FDFDT-Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A hands-on guide to FAIR and structured ecological data" />
+  <meta name="twitter:title" content="3.2 Structuring your tabular data | A hands-on guide to FAIR and structured ecological data" />
   
   <meta name="twitter:description" content="This hands-on manual provides step by step guidance on how to make your ecological data more FAIR (findable, accesible, interoperable and reusable) and structured." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="images/LTER-LIFE-logo.svg" type="image/x-icon" />
+<link rel="prev" href="04-Describe-data.html"/>
 
-<link rel="next" href="00-preface-part2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -150,51 +150,40 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A hands-on guide to FAIR and structured ecological data</h1>
-<p class="author"><em><a href="https://orcid.org/0009-0006-0723-2682">Cherine C. Jantzen</a> &amp; <a href="http://orcid.org/0000-0002-9006-5988">Stefan J.G. Vriend</a></em></p>
-<p class="date"><em>2025-08-07</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered hasAnchor">
-<h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This interactive manual aims to provide ecologists and other data owners of ecological data with a hands-on guide on how to make your ecological data more structured and more <a href="#FAIR">FAIR</a> and tackle the problems that can occur along this process.</p>
-<div id="availability-of-example-code" class="section level3 unnumbered hasAnchor">
-<h3>Availability of example code<a href="index.html#availability-of-example-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This guide was developed based on practical work on <a href="02-example-datasets.html#example-datasets">different datasets</a>. Throughout this guide, we refer to examples and code snippets from this work. The complete R code can be found on this <a href="https://github.com/LTER-LIFE/FDFDT">GitHub repository</a>.</p>
-</div>
-<div id="how-to-cite-and-licence" class="section level3 unnumbered hasAnchor">
-<h3>How to cite and licence<a href="index.html#how-to-cite-and-licence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If you want to cite this guide, please refer to it as:</p>
-<p>Jantzen, C.C., &amp; Vriend, S.J.G. (2024). A hands-on guide to FAIR and structured ecological data. <a href="https://lter-life.github.io/FDFDT-Manual" class="uri">https://lter-life.github.io/FDFDT-Manual</a></p>
-<p>This guide is licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-Noncommercial 4.0 International licence</a> (CC BY-NC 4.0). <a href="images/CCBY-NC_logo.png"><img src="images/CCBY-NC_logo.png" width="80"/></a></p>
-</div>
-<div id="release-notes" class="section level3 unnumbered hasAnchor">
-<h3>Release notes<a href="index.html#release-notes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>For the changelog of this guide, see the <a href="https://github.com/LTER-LIFE/FDFDT-Manual?tab=readme-ov-file#release-notes">release notes</a>.</p>
-</div>
-<div id="how-to-provide-feedback" class="section level3 unnumbered hasAnchor">
-<h3>How to provide feedback<a href="index.html#how-to-provide-feedback" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If you have any suggestions, questions or comments while reading through this guide or want to provide any other feedback on how to improve this guide, we are happy to receive your feedback through <a href="https://github.com/LTER-LIFE/FDFDT/issues/new">the Github repository</a> where you can add your remarks as a new issue!</p>
-<div class="disclaimer disclaimerimg">
-<p><span style="font: 22px &#39;Asap&#39;;"><strong>Disclaimer</strong></span></p>
+<div id="structuring-your-tabular-data" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Structuring your tabular data<a href="04.1-Structure-tabular-data.html#structuring-your-tabular-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A common way of storing biodiversity data is in tables. However, simply entering the data into a spreadsheet does often not adhere to the strict requirements of tabular data, which has the following characteristics:</p>
 <ul>
-<li><p>We want to emphasise here that there is no one-size-fits-all solution and every dataset will bring its own challenges that need individual solutions. We cannot tackle all of these challenges but only give recommendations based on our own work with a range of different ecological datasets.</p></li>
-<li><p>The FAIR principles are not set in stone but rather intended as guidance. Practical implications should be interpreted by each community individually, while sticking as closely as possible to the principles themselves (cf. <a href="https://fairsharing.github.io/FAIR-Evaluator-FrontEnd/#!/">Maturity Indicator Authoring Group</a>). We therefore also want to stress that the way we implement FAIR in this guide is <strong>only one way</strong> of operationalising it and is based on our own interpretations and extensions of the FAIR principles (<span class="citation">Wilkinson et al. (<a href="#ref-Wilkinson_2016">2016</a>)</span>).</p></li>
+<li><p>Structured in rows and columns</p></li>
+<li><p>A row contains information about a single entity (e.g., a person’s name, age, or occupation), whilst a single column describes the same property of each entity (e.g., the names of all persons)</p></li>
+<li><p>Rectangular shape, in which each row has the same number of columns and each column the same number of rows</p></li>
+<li><p>Cells in a row/column can be left empty</p></li>
 </ul>
+<p>For a more extensive and formal description of tabular data, see W3C’s <a href="https://www.w3.org/TR/tabular-data-model/">tabular data model</a>.</p>
+<p>To standardise the data and make it reusable to others and to follow the remaining steps of this guide, it is a necessary prerequisite that data that is meant to be tabular follows the aforementioned characteristics. If not, reshape your data accordingly.</p>
+<div class="infobox infoimg">
+<p>If your data consists of multiple tables, the relationships between these tables should be made clear. This can be done either by describing it in a README file (see <a href="04-Describe-data.html#describe-data">section 4.1</a>) or, if your data is already in a standard format, in a more standardised way, such as the meta.xml file described <a href="#structural-metadata">here</a>.</p>
 </div>
-</div>
-<div id="acknowledgements" class="section level2 unnumbered hasAnchor">
-<h2>Acknowledgements<a href="index.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We would like to thank the FAIR Data for Digital Twins team - Cees Hof, Kim Ferguson, and Eric Kuijt - for the regular discussions, feedback and suggestions on the evaluation tool and guide. We thank Marcel E. Visser and Wim Hugo for their input and advice on the overall project.</p>
-<p>Thanks to Parinaz Rashidi, W. Daniel Kissling, Geerten M. Hengeveld and others involved in <a href="https://lter-life.nl/en">LTER-LIFE</a>, for their contributions to the guide and for their efforts in continuing the development of this work through LTER-LIFE.</p>
-<p>Many thanks to the custodians of the datasets that are used as examples throughout this guide. The lessons learned from FAIRifying and structuring these datasets form the bedrock for the design and implementation of the workflow. We thank Judith Risse, Marcel E. Visser (bud burst data), Joost Vogels, Wilco C.E.P. Verberk (cricket data), G.F. (Ciska) Veen, Freddy ten Hooven, and Wim H. van der Putten (CLUE data), as well as all the people who contributed to the many years of data collection.</p>
-<p>We thank the Royal Netherlands Academy of Arts and Sciences (KNAW) for their financial support through the Institutes Research Fund 2022.</p>
+<div>
 
-</div>
-<h3>References</h3>
+
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
-<div id="ref-Wilkinson_2016" class="csl-entry">
+<div class="csl-entry">
+Krans, N. A., Ammar, A., Nymark, P., Willighagen, E. L., Bakker, M. I., &amp; Quik, J. T. K. (2022). FAIR assessment tools: Evaluating use and performance. <em>NanoImpact</em>, <em>27</em>, 100402. <a href="https://doi.org/10.1016/j.impact.2022.100402">https://doi.org/10.1016/j.impact.2022.100402</a>
+</div>
+<div class="csl-entry">
+Pagano, P., Candela, L., &amp; Castelli, D. (2013). Data interoperability. <em>Data Science Journal</em>, <em>12</em>(0), GRDI19–GRDI25. <a href="https://doi.org/10.2481/dsj.grdi-004">https://doi.org/10.2481/dsj.grdi-004</a>
+</div>
+<div class="csl-entry">
+Visser, M. E., &amp; Holleman, L. J. M. (2001). Warmer springs disrupt the synchrony of oak and winter moth phenology. <em>Proceedings of the Royal Society of London. Series B: Biological Sciences</em>, <em>268</em>(1464), 289–294. <a href="https://doi.org/10.1098/rspb.2000.1363">https://doi.org/10.1098/rspb.2000.1363</a>
+</div>
+<div class="csl-entry">
+Vogels, J. J., Verberk, W. C. E. P., Kuper, J. T., Weijters, M. J., Bobbink, R., &amp; Siepel, H. (2021). How to restore invertebrate diversity of degraded heathlands? A case study on the reproductive performance of the field cricket gryllus campestris (l.). <em>Frontiers in Ecology and Evolution</em>, <em>9</em>. <a href="https://doi.org/10.3389/fevo.2021.659363">https://doi.org/10.3389/fevo.2021.659363</a>
+</div>
+<div class="csl-entry">
 Wilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G., Axton, M., Baak, A., Blomberg, N., Boiten, J.-W., Silva Santos, L. B. da, Bourne, P. E., Bouwman, J., Brookes, A. J., Clark, T., Crosas, M., Dillo, I., Dumon, O., Edmunds, S., Evelo, C. T., Finkers, R., … Mons, B. (2016). The FAIR guiding principles for scientific data management and stewardship. <em>Scientific Data</em>, <em>3</em>(1). <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -202,8 +191,8 @@ Wilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G., Axton, M., B
           </div>
         </div>
       </div>
+<a href="04-Describe-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="00-preface-part2.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
