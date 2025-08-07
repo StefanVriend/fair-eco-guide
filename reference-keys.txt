@@ -1,0 +1,4 @@
+fig:MSSS-FAIR
+fig:Fig-mapping
+evaluation
+mapping-of-evaluation-questions-to-fair-principles
